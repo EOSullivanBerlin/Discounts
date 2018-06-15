@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import DiscountDisplay from './components/DiscountDisplay';
+import DiscountFn from './discountFunctions/DiscountFunctions';
 
 class App extends Component {
   constructor(props) {
@@ -22,6 +23,10 @@ class App extends Component {
     }
   }
 
+  handleDiscountThree(order) {
+    return DiscountFn.totalByTwo(order);
+  }
+
   render() {
     return (
       <div className="App">
@@ -32,6 +37,7 @@ class App extends Component {
         </p>
         <DiscountDisplay
         order={this.state.order}
+        DiscountThree={this.handleDiscountThree.bind(this)}
         />
       </div>
     );
