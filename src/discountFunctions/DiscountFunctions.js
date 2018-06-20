@@ -45,7 +45,6 @@ var DiscountFunctions = {
         'reduction': this.discountGenratorThree(order)
       }
     }
-
     return order;
   },
   discountGeneratorOne(order) {
