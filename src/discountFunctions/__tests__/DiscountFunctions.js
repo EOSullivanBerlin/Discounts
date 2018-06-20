@@ -1,6 +1,6 @@
 import DiscountFunctions from '../DiscountFunctions';
 
-let mockOrder, mockOrderTwo, mockOrderPlusDiscount, mockOrderFour;
+let mockOrder, mockOrderTwo, mockOrderPlusDiscount, mockOrderFour, customers;
 beforeEach(() => {
   mockOrder = {
     'id': '1',
@@ -27,6 +27,27 @@ beforeEach(() => {
     ],
     'total': '134.30',
   };
+
+  customers = [
+  {
+    "id": "1",
+    "name": "Coca Cola",
+    "since": "2014-06-28",
+    "revenue": "492.12"
+  },
+  {
+    "id": "2",
+    "name": "Teamleader",
+    "since": "2015-01-15",
+    "revenue": "1505.95"
+  },
+  {
+    "id": "3",
+    "name": "Jeroen De Wit",
+    "since": "2016-02-11",
+    "revenue": "0.00"
+  }
+],
 
   mockOrderTwo = {
       'id': '1',
@@ -179,6 +200,13 @@ describe('discountGeneratorTwo', () => {
   it('returns the price of the sixth item for free', () => {
     expect(DiscountFunctions.discountGeneratorTwo(mockOrder)).toEqual('4.99')
   });
+});
 
-  it('')
+describe('isDiscountThree', () => {
+  it('returns true if a cutomer has purchesed over a €1000 in goods', () => {
+      expect(DiscountFunctions.isDiscountThree(customers[1])).toBe(true)
+  });
+  it('returns false if the customer has not purchased over €1000 in goods', () => {
+      expect(DiscountFunctions.isDiscountThree(customers[0])).toBe(false)
+  });
 });

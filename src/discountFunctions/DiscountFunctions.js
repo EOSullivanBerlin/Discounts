@@ -68,6 +68,10 @@ var DiscountFunctions = {
     }
     return discount
   },
+
+  isDiscountThree(customer) {
+    return parseFloat(customer.revenue) >= 1000
+  },
   }
 
 
