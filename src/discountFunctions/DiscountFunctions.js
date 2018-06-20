@@ -27,8 +27,8 @@ var DiscountFunctions = {
       return false;
     }
   },
-  Discounter(order) {
-    if(this.isDiscountOne(order) || this.isDiscountTwo(order)){
+  Discounter(order, customer) {
+    if(this.isDiscountOne(order) || this.isDiscountTwo(order) || this.isDiscountThree(customer)){
       order.discounts = {}
     }
     if(this.isDiscountOne(order)) {
@@ -39,6 +39,10 @@ var DiscountFunctions = {
     if(this.isDiscountTwo(order)) {
       order.discounts['b'] = {
         'reduction': this.discountGeneratorTwo(order)
+      }
+    if(this.isDiscountThree(customer))
+      order.discounts['c'] = {
+        'reduction': this.discountGenratorThree(order)
       }
     }
 
@@ -72,6 +76,11 @@ var DiscountFunctions = {
   isDiscountThree(customer) {
     return parseFloat(customer.revenue) >= 1000
   },
+
+  discountGenratorThree(order) {
+    return ((parseFloat(order.total) / 100) * 10).toFixed(2)
+  },
+
   }
 
 

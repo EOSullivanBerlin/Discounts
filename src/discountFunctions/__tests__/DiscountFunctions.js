@@ -154,14 +154,17 @@ describe('Discounter', () => {
     },
     'b': {
       'reduction': '4.99'
+    },
+    'c': {
+      'reduction': '13.43'
     }
   }
   it('will create a field in the order object called discount if one of the discount conditions are met', () => {
-    DiscountFunctions.Discounter(mockOrder)
+    DiscountFunctions.Discounter(mockOrder, customers[0])
     expect(Object.keys(mockOrder).length).toEqual(5)
   });
   it('will create a discount for category 1/A when appropiate', () => {
-    DiscountFunctions.Discounter(mockOrder)
+    DiscountFunctions.Discounter(mockOrder, customers[0])
     expect(mockOrder.discounts.a).toEqual(discounts.a)
   });
   it('will not create a discount for category 1/A when not appropiate', () => {
@@ -171,21 +174,30 @@ describe('Discounter', () => {
         'items': [],
         'total': '',
       };
-    expect(DiscountFunctions.Discounter(mockOrderTwo)).toEqual(mockOrderThree)
+    expect(DiscountFunctions.Discounter(mockOrderTwo, customers[0])).toEqual(mockOrderThree)
   });
   it('if the conditions are met for category 1/A it will reduce the price of the cheapest by 20%', () => {
-    DiscountFunctions.Discounter(mockOrder)
+    DiscountFunctions.Discounter(mockOrder, customers[0])
     expect(mockOrder.discounts.a.reduction).toEqual(discounts.a.reduction)
-    DiscountFunctions.Discounter(mockOrderFour)
+    DiscountFunctions.Discounter(mockOrderFour, customers[0])
     expect(mockOrderFour.discounts.a.reduction).toEqual('9.90')
   });
 
 
   it('will create a discount for category 2/B when appropiate', () => {
-    DiscountFunctions.Discounter(mockOrder)
+    DiscountFunctions.Discounter(mockOrder, customers[0])
     expect(mockOrder.discounts.b).toEqual(discounts.b)
   });
+  it('will create a discount for category 3/C when appropiate', () => {
+    DiscountFunctions.Discounter(mockOrder, customers[1])
+    expect(mockOrder.discounts.c).toEqual(discounts.c)
+  })
+  it('ill not create a discounts for any categories when not appropiate', () => {
+    DiscountFunctions.Discounter(mockOrderTwo, customers[0])
+    expect(Object.keys(mockOrder).length).toEqual(4)
+  });
 });
+
 
 });
 
@@ -209,4 +221,13 @@ describe('isDiscountThree', () => {
   it('returns false if the customer has not purchased over €1000 in goods', () => {
       expect(DiscountFunctions.isDiscountThree(customers[0])).toBe(false)
   });
+});
+
+describe('discountGenratorThree', () => {
+  let reduction = '13.43';
+  let reductionTwo = '9.90';
+  it('reduces the entire order by 10%', () => {
+    expect(DiscountFunctions.discountGenratorThree(mockOrder)).toEqual(reduction)
+    expect(DiscountFunctions.discountGenratorThree(mockOrderFour)).toEqual(reductionTwo)
+  })
 });
