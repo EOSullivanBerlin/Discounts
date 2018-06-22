@@ -82,6 +82,4 @@ var DiscountFunctions = {
 
   }
 
-
-
 export default DiscountFunctions;
