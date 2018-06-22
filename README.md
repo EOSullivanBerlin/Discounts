@@ -1,7 +1,7 @@
-#Teamleader Techtest
+##Teamleader Techtest
 This is a React tech test I completed in preparation for starting work with Teamleader. The aim of this test is to create the logic for a number of discounts and display the results using React.
 
-## How discounts work
+##How discounts work
 
 For now, there are three possible ways of getting a discount:
 
