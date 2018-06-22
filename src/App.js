@@ -43,7 +43,6 @@ class App extends Component {
 
   handleDiscounts(order, customer) {
     let result = DiscountFunctions.Discounter(order, customer);
-    console.log(result.discounts.a.reduction);
     return result.discounts;
   }
 
@@ -53,7 +52,6 @@ class App extends Component {
         <header className="Discount">
         </header>
         <p className="App-intro">
-          Hello
         </p>
         <DiscountDisplay
         order={this.state.order}
