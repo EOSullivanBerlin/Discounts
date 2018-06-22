@@ -1,7 +1,7 @@
-##Teamleader Techtest
+## Teamleader Techtest
 This is a React tech test I completed in preparation for starting work with Teamleader. The aim of this test is to create the logic for a number of discounts and display the results using React.
 
-##How discounts work
+## How discounts work
 
 For now, there are three possible ways of getting a discount:
 
@@ -14,7 +14,7 @@ By the way: there may become more ways of granting customers discounts in the fu
 Original Repository for this tech test
 https://github.com/teamleadercrm/coding-test/blob/master/1-discounts.md
 
-##Setup and tests
+## Setup and tests
 Install dependancies
 
 **npm install**
@@ -29,8 +29,8 @@ Run the test suit
 
 
 ## Possible areas to improve
-###Style
-The style could be easliy improved. A bit of basic bootstrap would go along way.
+### Style
+The style could be improved. A bit of basic bootstrap would go along way.
 
-###Functionality
+### Functionality
 The app just addressed the requirements of displaying the discounts. There is huge room for adding functionality. However, to ensure the most value for the customer as possible for time and money invested I try to deliver the MVP.
