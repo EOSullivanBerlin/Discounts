@@ -33,4 +33,4 @@ Run the test suit
 The style could be improved. A bit of basic bootstrap would go along way.
 
 ### Functionality
-The app just addressed the requirements of displaying the discounts. There is huge room for adding functionality. However, to ensure the most value for the customer as possible for time and money invested I try to deliver the MVP.
+The app just addressed the requirements of displaying the discounts. There is huge room for adding functionality. However, to ensure the most value for the customer as possible for time and money invested I try to deliver the MVP. Elaboration on the core functionallity can then be discussed and the next most important features created. 
