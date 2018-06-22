@@ -231,3 +231,18 @@ describe('discountGenratorThree', () => {
     expect(DiscountFunctions.discountGenratorThree(mockOrderFour)).toEqual(reductionTwo)
   })
 });
+
+describe('discountTotalGenerator', () => {
+  it('itereates through the entries in discount and creates a discount total', () => {
+    let discountsTotal = '6.94'
+    let discounts = {
+      'a': {
+        'reduction': '1.95'
+      },
+      'b': {
+        'reduction': '4.99'
+      }
+    }
+    expect(DiscountFunctions.discountTotalGenrator(discounts)).toEqual(discountsTotal)
+  });
+});

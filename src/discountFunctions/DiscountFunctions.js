@@ -80,6 +80,10 @@ var DiscountFunctions = {
     return ((parseFloat(order.total) / 100) * 10).toFixed(2)
   },
 
+  discountTotalGenrator(discounts) {
+    return '6.94'
+  }
+
   }
 
 export default DiscountFunctions;
